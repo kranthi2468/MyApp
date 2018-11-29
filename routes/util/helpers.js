@@ -45,6 +45,6 @@ global.checkCustomerSession = (req, res, next) => {
         console.log(`Failed User session check`);
         var resp = global.makeResult(401, setErrorMsg('No User Session Found'));
         res.statusCode = resp.http_code;
-        res.json(resp);
+        res.json(resp.message);
     }
 }
