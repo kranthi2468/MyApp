@@ -38,15 +38,7 @@ app.use(session({
     db: 0 /*, ttl: 60 * 15 */
   }),
   saveUninitialized: true,
-  resave: true,
-  name: 'connect.cid',
-  rolling: true,
-  cookie: {
-    secure: false,
-    maxAge: null,
-    SameSite: false,
-    domain: 'localhost'
-  }
+  resave: true
 }));
 
 global.services = {};

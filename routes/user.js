@@ -1,4 +1,7 @@
 module.exports = (app) => {
+	app.get('/',function(req,res){
+		res.send("server up...")
+	})
 	app.post('/user/login', function (req, res) {
 		console.log("in login route")
 		let input = {
@@ -8,6 +11,7 @@ module.exports = (app) => {
 		global.controllers.user.login(input)
 		.then(user => {
 			req.session.user = user;
+			console.log("sessionObj : ",req.session)
 			let resp = makeResult(200,setSuccessMsg("login success"))
 			res.statusCode = resp.http_code;
 			res.json(resp.message);
